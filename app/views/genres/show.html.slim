@@ -1,0 +1,7 @@
+h1 = @genre.name
+
+ul
+  li = @genre.name
+  - if @genre.category
+    li = @genre.category
+p = link_to "Return to all genres", genres_path

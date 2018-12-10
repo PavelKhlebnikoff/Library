@@ -1,0 +1,9 @@
+h1 = @audio_book.name
+
+ul
+  li = "Floor: #{@audio_book.floor}"
+  - if @audio_book.quantity
+    li = "Quantity: #{@audio_book.quantity} units"
+    - if @audio_book.available
+      li = "Available #{@audio_book.available}"
+p = link_to "Return to all audio books of this genre", genre_audio_books_path

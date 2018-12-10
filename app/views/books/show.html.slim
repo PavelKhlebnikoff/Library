@@ -1,0 +1,8 @@
+h1 = @book.name
+ul
+  li = "Floor: #{@book.floor}"
+  - if @book.quantity
+    li = "Quantity: #{@book.quantity} units"
+  - if @book.available
+    li = "Available #{@book.available}"
+p  #{link_to "Return to all books of this genre", genre_books_path} or #{link_to "Edit", edit_genre_book_path}

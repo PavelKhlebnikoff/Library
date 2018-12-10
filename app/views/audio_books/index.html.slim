@@ -1,0 +1,27 @@
+ul
+  h1 = "#{@genre.name} audio books:"
+  - if @audio_books.present?
+    li
+      h5 = "On the #{@audio_books.first.floor}th floor you can find these audio books."
+    p
+      li
+        h5 = "These audio books with #{@audio_books.first.genre_id}th Genre_id"
+table
+  tr
+    th Audio_Book_id
+    th Name
+    th Quantity
+    th Available
+    th
+    th
+  - @audio_books.each do |book|
+    tr
+      td = book.id
+      td = link_to "#{book.name}", genre_audio_book_path(book.genre_id, book.id)
+      td = book.quantity
+      td = book.available
+      td = link_to "Delete", genre_audio_book_path(@genre, book.id), method: :delete, data: { confirm: "Are you sure, remove?" }
+      td = link_to "Edit", edit_genre_audio_book_path(@genre, book.id)
+p
+p #{link_to "Go to all categories of genres", genres_path(@genre)} or you can  #{link_to "Create a new audio book",  new_genre_audio_book_path(@genre, @books)}
+
