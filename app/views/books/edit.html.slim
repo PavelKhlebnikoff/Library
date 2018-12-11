@@ -1,5 +1,5 @@
 h1 Edit book
-= form_for([@genre, @book]) do |f|
+= form_for [@genre, @book], html: { multipart: true } do |f|
   = render partial: "form", locals: { f: f }
   .col-md-3.row = f.submit 'Save book', class: 'btn btn-success w-100'
 p = link_to "Back", genre_books_path

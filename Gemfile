@@ -65,3 +65,4 @@ gem "pry"
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'devise'
+gem "paperclip", "~> 6.0.0"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_10_132408) do
+ActiveRecord::Schema.define(version: 2018_12_11_143546) do
 
   create_table "audio_books", force: :cascade do |t|
     t.integer "genre_id"
@@ -34,6 +34,10 @@ ActiveRecord::Schema.define(version: 2018_12_10_132408) do
     t.integer "votes_count", default: 0
     t.string "chapters"
     t.integer "number_of_chapters"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "chapters", force: :cascade do |t|
