@@ -1,5 +1,5 @@
 class GenresController < ApplicationController
-
+  before_action :authenticate_user!, except:  [:show, :index]
   before_action :find_genre, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -47,9 +47,9 @@ class GenresController < ApplicationController
 
   private
 
-    def find_genre
-      @genre = Genre.find(params[:id])
-    end
+  def find_genre
+    @genre = Genre.find(params[:id])
+  end
 
   def genre_params
     params.require(:genre).permit(:name)

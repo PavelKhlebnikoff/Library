@@ -64,3 +64,4 @@ gem "slim-rails"
 gem "pry"
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'devise'
