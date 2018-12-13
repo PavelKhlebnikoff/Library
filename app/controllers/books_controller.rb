@@ -22,7 +22,8 @@ class BooksController < ApplicationController
 
   # /books POST
   def create
-    @book = Book.create(book_params)
+    binding.pry
+    @book = Book.create(book_params.merge(genre_id: @genre.id))
     if @book.errors.empty?
       redirect_to genre_book_path(@genre, @book)
     else
@@ -62,7 +63,7 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:name, :available, :floor, :quantity)
+    params.require(:book).permit(:name, :available, :floor, :quantity, :image)
   end
 
 end

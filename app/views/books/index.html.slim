@@ -2,13 +2,17 @@ ul
   h1 = "#{@genre.name} books:"
   - if @books.present?
     li
-      h5 = "On the #{@books.first.floor}th floor you can find these books."
+      h5 = "You can find these books on the #{@books.first.floor}th floor."
+    p
+    li
+      h5 = "Total #{@genre.books.map{ |x| x.quantity.present? ? x.quantity : 0 }.sum}th books of this genre."
     p
      li
        h5 = "These books with #{@books.first.genre_id}th Genre_id"
+
 table
   tr
-    th Book_id
+    th Image
     th Name
     th Quantity
     th Available
@@ -18,7 +22,10 @@ table
     th Chapters
   - @books.each do |book|
     tr
-      td = book.id
+      - if book.image.present?
+        td = link_to (image_tag (book.image.url(:thumb)), :style => "width: 50px; height: 70px; margin-bottom: 5px"), genre_book_path(book.genre_id, book.id)
+      - else
+        td = link_to image_tag("no_image.jpg", :style => "width: 50px; height: 70px; margin-bottom: 5px"), genre_book_path(book.genre_id, book.id)
       td = link_to "#{book.name}", genre_book_path(book.genre_id, book.id)
       td = book.quantity
       td = book.available
