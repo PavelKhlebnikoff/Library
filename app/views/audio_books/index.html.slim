@@ -8,7 +8,6 @@ ul
         h5 = "These audio books with #{@audio_books.first.genre_id}th Genre_id"
 table
   tr
-    th Audio_Book_id
     th Name
     th Quantity
     th Available
@@ -16,7 +15,6 @@ table
     th
   - @audio_books.each do |book|
     tr
-      td = book.id
       td = link_to "#{book.name}", genre_audio_book_path(book.genre_id, book.id)
       td = book.quantity
       td = book.available

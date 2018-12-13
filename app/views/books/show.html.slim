@@ -6,5 +6,5 @@ ul
   - if @book.available
     li = "Available #{@book.available}"
 - if @book.image
-  = image_tag @book.image.url(:medium)
+  = image_tag @book.image.url(:medium), :style => "width: 200px; height: 250px"
 p #{link_to "Return to all books of this genre", genre_books_path} or #{link_to "Edit", edit_genre_book_path}
